@@ -4,8 +4,9 @@ console.log(inputEl);
 console.log(spanEl);
 
 inputEl.addEventListener("click", () => {
-    if (spanEl.textContent = inputEl.value) {
-        return spanEl.textContent
+    if (spanEl.textContent !== "") {
+        spanEl.textContent = inputEl.value
+        return inputEl.value
     };
     return spanEl.textContent = `Anonymous`;
 }

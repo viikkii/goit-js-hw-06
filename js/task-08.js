@@ -5,15 +5,16 @@ form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-    const {
+  const {
     elements: { email, password } } = event.currentTarget;
 
 
-if (email.value === "" || password.value === "") {
-  alert `все поля должны быть заполнены!`;
-  form.reset();
-}
+  if (email.value === "" || password.value === "") {
+    alert(`все поля должны быть заполнены!`);
+    form.reset();
+    return
+  }
 
-console.log(`email: ${email.value}, password: ${password.value}`);
-event.currentTarget.reset();
+  console.log(`getAttribute('email'): ${ email.value }, getAttribute('password'): ${ password.value }`);
+form.reset();
 }
