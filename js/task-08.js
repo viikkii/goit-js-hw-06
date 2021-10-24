@@ -6,15 +6,19 @@ form.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
   const {
-    elements: { email, password } } = event.currentTarget;
-
-
+    elements: { email, password }
+  } = event.currentTarget;
+  
   if (email.value === "" || password.value === "") {
-    alert(`все поля должны быть заполнены!`);
-    form.reset();
-    return
+    return alert(`все поля должны быть заполнены!`)
   }
 
-  console.log(`getAttribute('email'): ${ email.value }, getAttribute('password'): ${ password.value }`);
+  const userFormResult = {};
+  const formData = new FormData(event.currentTarget);
+  formData.forEach((value, name) => {
+    userFormResult[name] = value;
+  })
+
+  console.log(userFormResult);
 form.reset();
 }
